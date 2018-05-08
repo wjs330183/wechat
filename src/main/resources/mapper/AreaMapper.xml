@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.json.wechat.dao.AreaDao">
-    <resultMap id="resultMap" type="com.json.wechat.entity">
+
+    <resultMap id="resultMap" type="com.json.wechat.entity.Area">
         <result property="id" column="id" jdbcType="VARCHAR"/>
         <result property="areaId" column="area_id" jdbcType="VARCHAR"/>
         <result property="areaName" column="area_name" jdbcType="VARCHAR"/>
@@ -14,6 +15,7 @@
         <result property="sysUpdater" column="sys_updater" jdbcType="VARCHAR"/>
         <result property="sysDeleted" column="sys_deleted" jdbcType="INTEGER"/>
     </resultMap>
+
     <sql id="tableName">tb_area</sql>
     <sql id="columns">
         id,
@@ -69,7 +71,7 @@
         <include refid="tableName"/>
     </select>
 
-    <select id="queryArea" resultMap="resultMap">
+    <select id="queryAreaById" resultMap="resultMap">
         select * from
         <include refid="tableName"/>
         where area_id=#{areaId}

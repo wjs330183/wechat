@@ -1,6 +1,8 @@
 package com.json.wechat.entity;
 
+
 import java.util.Date;
+
 
 public class Area {
 

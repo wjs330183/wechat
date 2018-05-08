@@ -1,12 +1,12 @@
-package com.json.wechat.dao;
+package com.json.wechat.service;
 
 import com.json.wechat.entity.Area;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Mapper
-public interface AreaDao {
+@Service
+public interface AreaService {
     /**
      * @return
      */
