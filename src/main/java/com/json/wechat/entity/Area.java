@@ -1,4 +1,4 @@
-package com.json.wechat;
+package com.json.wechat.entity;
 
 import java.util.Date;
 

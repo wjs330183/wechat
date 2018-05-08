@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.json.wechat.dao.AreaDao">
+    <resultMap id="resultMap" type="com.json.wechat.entity">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="areaId" column="area_id" jdbcType="VARCHAR"/>
+        <result property="areaName" column="area_name" jdbcType="VARCHAR"/>
+        <result property="priority" column="priority" jdbcType="VARCHAR"/>
+        <result property="sysCreateTime" column="sys_create_time" jdbcType="TIMESTAMP"/>
+        <result property="sysCreator" column="sys_creator" jdbcType="VARCHAR"/>
+        <result property="sysUpdateTime" column="sys_update_time" jdbcType="TIMESTAMP"/>
+        <result property="sysUpdater" column="sys_updater" jdbcType="VARCHAR"/>
+        <result property="sysDeleted" column="sys_deleted" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="tableName">tb_area</sql>
+    <sql id="columns">
+        id,
+        area_id,
+        area_name,
+        priority,
+        sys_create_time,
+        sys_creator,
+        sys_update_time,
+        sys_updater,
+        sys_deleted
+    </sql>
+
+    <insert id="createArea">
+        insert into
+        <include refid="tableName"/>
+        (<include refid="columns"/>) values
+        (
+        #{entity.id},
+        #{entity.areaId},
+        #{entity.areaName},
+        #{entity.priority},
+        #{entity.sysCreateTime},
+        #{entity.sysCreator},
+        #{entity.sysUpdateTime},
+        #{entity.sysUpdater},
+        #{entity.sysDeleted}
+        )
+    </insert>
+
+    <update id="updateArea">
+        update
+        <include refid="tableName"/>
+        set
+        area_name = #{entity.areaName},
+        priority = #{entity.priority},
+        sys_updater=#{entity.sysUpdater}
+        where
+        id=#{entiy.id}
+        and sys_deleted!=1
+    </update>
+
+    <update id="deleteArea">
+        update
+        <include refid="tableName"/>
+        set sys_deleted=1, sys_updater=#{operator}
+        where area_id=#{areaId}
+        and sys_deleted!=1
+    </update>
+
+    <select id="queryArea" resultMap="resultMap">
+    select * from
+        <include refid="tableName"/>
+    </select>
+
+    <select id="queryArea" resultMap="resultMap">
+        select * from
+        <include refid="tableName"/>
+        where area_id=#{areaId}
+        and sys_deleted!=1
+    </select>
+
+</mapper>
