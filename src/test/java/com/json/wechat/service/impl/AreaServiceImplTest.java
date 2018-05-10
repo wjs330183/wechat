@@ -6,6 +6,7 @@ import com.json.wechat.entity.Area;
 import com.json.wechat.service.AreaService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -42,5 +43,8 @@ public class AreaServiceImplTest {
 
     @Test
     public void deleteArea() {
+        String areaId = "1";
+        int count = areaService.deleteArea(areaId);
+        System.out.println(count);
     }
 }

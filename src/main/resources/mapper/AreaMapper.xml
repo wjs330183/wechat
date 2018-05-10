@@ -69,6 +69,7 @@
     <select id="queryArea" resultMap="resultMap">
     select * from
         <include refid="tableName"/>
+        where sys_deleted!=1
     </select>
 
     <select id="queryAreaById" resultMap="resultMap">
