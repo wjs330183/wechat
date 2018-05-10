@@ -1,0 +1,17 @@
+﻿server:
+  port: 8080
+spring:
+  datasource:
+    username: cjlu
+    password: Cjlu123
+    url: jdbc:mysql://120.77.216.243/wechat?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.json.wechat.entity
+
